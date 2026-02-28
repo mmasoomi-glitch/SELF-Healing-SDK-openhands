@@ -1,0 +1,9 @@
+# CODEOWNERS
+/vendor/     @mmasoomi-glitch
+/policies/   @mmasoomi-glitch
+/config/     @mmasoomi-glitch
+/standards/  @mmasoomi-glitch
+/.github/    @mmasoomi-glitch
+AGENT_CONTRACT.md  @mmasoomi-glitch
+POLICY.md          @mmasoomi-glitch
+README.md          @mmasoomi-glitch

@@ -1,0 +1,44 @@
+version: 1
+generated_by: pipeline/rag_compiler.py
+
+repo_grounding_inputs:
+  - README.md
+  - AGENT_CONTRACT.md
+  - POLICY.md
+  - policies/enforcer.py
+  - policies/grounding_required.py
+  - policies/grounding_validator.py
+  - sandbox/runner.py
+  - pipeline/task_schema.json
+
+sources:
+  - id: repo_coding_rules_v1
+    kind: internal_snapshot
+    path: standards/sources/repo_coding_rules.md
+    version: "v1"
+    retrieved_at_utc: "2026-02-28T00:00:00Z"
+    sha256: "__TO_BE_FILLED__"
+
+  - id: repo_security_rules_v1
+    kind: internal_snapshot
+    path: standards/sources/repo_security_rules.md
+    version: "v1"
+    retrieved_at_utc: "2026-02-28T00:00:00Z"
+    sha256: "__TO_BE_FILLED__"
+
+  - id: repo_module_contract_v1
+    kind: internal_snapshot
+    path: standards/sources/repo_module_contract.md
+    version: "v1"
+    retrieved_at_utc: "2026-02-28T00:00:00Z"
+    sha256: "__TO_BE_FILLED__"
+
+compiled:
+  corpus_path: standards/compiled/rag_corpus.jsonl
+  built_at_utc: "__TO_BE_FILLED__"
+  built_from_inputs_sha256: "__TO_BE_FILLED__"
+  sha256: "__TO_BE_FILLED__"
+
+freshness_policy:
+  max_age_days: 30
+  update_process: "Run: python pipeline/rag_compiler.py --write then commit and PR."

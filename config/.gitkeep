@@ -1,0 +1,3 @@
+# Config files go here. Never commit secrets.
+# Create config/settings.yaml and config/.env locally.
+# .env must be in .gitignore

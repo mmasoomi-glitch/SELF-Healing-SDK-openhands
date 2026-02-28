@@ -1,0 +1,7 @@
+name: "_template"
+version: "0.1.0"
+entrypoint: "python main.py"
+network: false
+resources:
+  cpu: 0.5
+  memory_mb: 512

@@ -1,0 +1,6 @@
+{
+  "task_id": "string",
+  "goal": "string",
+  "constraints": ["string"],
+  "expected_output": "string"
+}

@@ -1,0 +1,29 @@
+name: rag-audit
+
+on:
+  pull_request:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  rag-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile RAG corpus
+        run: python pipeline/rag_compiler.py --write
+
+      - name: Verify manifest and corpus exist
+        run: |
+          test -f standards/manifest.yaml
+          test -f standards/compiled/rag_corpus.jsonl
+
+      - name: Corpus sanity check
+        run: |
+          python -c "import pathlib; p=pathlib.Path('standards/compiled/rag_corpus.jsonl'); n=sum(1 for _ in p.open()); assert n>=10, f'Corpus too small: {n}'"
